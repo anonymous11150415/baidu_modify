@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>百度一下，你就知道</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="百度" class="logo">
+    <div class="search-container">
+        <form action="https://www.baidu.com/s" method="get" target="_blank">
+            <input type="text" name="wd" class="search-input" placeholder="请输入搜索内容">
+            <button type="submit" class="search-btn">百度一下</button>
+        </form>
+    </div>
+
+    <div class="hot-search">
+        <div class="hot-section">
+            <div class="hot-title">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAQCAYAAAAS7Y8mAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGYSURBVHgBrZRNTsJAFMf/b6btAE1MyIZEE+NCl5pQT8DiBCwnAE5QOQH2BMAJoCcwrHSBuMMQY1iQaGBXoH0+x04B01IK4k+a6bx57/0y7/UNwYXjOHOn07kXQtwCaBh9lcSrqqqPxWLxZRjGDxwgcQN0u90H27Yffd9PYKNpGkRRhGQyiXQ6DVmWwRhDv98XRVG8EkKM1us1Op3OE4A7rXVZluE4DpIkwWg0wng8Rr1eRyaTQSqVAiHkb2O/37+s1WrPjLFbwzA+t8VsNR6NRvB9H7PZDIFzXReWZa1qtdoLY+yGMfZNOOeQJAnz+RzL5RLL5RKapmE6nSIMQ0RRhEKhAFVVwTnHZrPBYrEA5xyKosCyrHsAj1tjtVqFaZqI4xhxHENRFAyHQ0wmE+i6DkEQEAQBPM+DbdtbI03TkMvlkqIoPm2NgiAgn8+D/nOGYaCUz+chiiLCMIQkSchms8hms9B1HfF3jFQqBdd193LPNE0kEgn4vo/BYPBeLBavCSH7udxzOKIownXdP7n8F5Q4VBZuO8K4AAAAAElFTkSuQmCC" alt="热搜">
+                百度热搜
+                <span class="refresh-btn">换一换</span>
+            </div>
+            <ul class="hot-list">
+                <li class="hot-item">
+                    <span class="hot-index top">1</span>
+                    <a href="#" class="hot-link">中国青年赵俊皓完成国际首次量子纠缠实验</a>
+                    <span class="hot-tag hot">热</span>
+                </li>
+                <li class="hot-item">
+                    <span class="hot-index top">2</span>
+                    <a href="#" class="hot-link">徐玮杰针对近期舆论绯闻作出回应</a>
+                    <span class="hot-tag new">新</span>
+                </li>
+                <!-- 更多热搜项... -->
+            </ul>
+        </div>
+        <div class="hot-section">
+            <div class="hot-title">
+                民生榜
+                <span class="refresh-btn">换一换</span>
+            </div>
+            <ul class="hot-list">
+                <li class="hot-item">
+                    <span class="hot-index">1</span>
+                    <a href="#" class="hot-link">宁波一女提款频错密码钱交罚款</a>
+                </li>
+                <li class="hot-item">
+                    <span class="hot-index">2</span>
+                    <a href="#" class="hot-link">河南一货车司机高架桥跳桥</a>
+                </li>
+                <!-- 更多民生项... -->
+            </ul>
+        </div>
+        <div class="hot-section">
+            <div class="hot-title">
+                财经榜
+                <span class="refresh-btn">换一换</span>
+            </div>
+            <ul class="hot-list">
+                <li class="hot-item">
+                    <span class="hot-index">1</span>
+                    <a href="#" class="hot-link">美4万亿巨头高管身亡</a>
+                </li>
+                <li class="hot-item">
+                    <span class="hot-index">2</span>
+                    <a href="#" class="hot-link">阿里告别大扫除</a>
+                </li>
+                <!-- 更多财经项... -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const emojis = ['😀', '😂', '😍', '😎', '😜', '🤔', '😇', '🥳', '😱', '🤖'];
+        
+        // 同时支持鼠标和触摸事件
+        const moveHandler = (event) => {
+            const x = event.pageX || event.touches[0].pageX;
+            const y = event.pageY || event.touches[0].pageY;
+            
+            const emoji = document.createElement('div');
+            emoji.className = 'emoji';
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = `${x}px`;
+            emoji.style.top = `${y}px`;
+            document.body.appendChild(emoji);
+
+            setTimeout(() => {
+                emoji.style.opacity = 0;
+                setTimeout(() => emoji.remove(), 1000);
+            }, 500);
+        };
+
+        // 添加触摸事件支持
+        document.addEventListener('mousemove', moveHandler);
+        document.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // 防止页面滚动
+            moveHandler(e);
+        }, { passive: false });
+    </script>
+</body>
+</html>
